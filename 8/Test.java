@@ -34,20 +34,36 @@ public class Test {
       }
 
       long base = System.currentTimeMillis();
-      Sort.insertionSort(arrOrdered);
+      Sort.bubbleSort(arrOrdered);
       timeOrdered.add(System.currentTimeMillis() - base);
 
       base = System.currentTimeMillis();
-      Sort.insertionSort(arrReversed);
+      Sort.bubbleSort(arrReversed);
       timeReversed.add(System.currentTimeMillis() - base);
 
       base = System.currentTimeMillis();
-      Sort.insertionSort(arrMid);
+      Sort.bubbleSort(arrMid);
       timeMid.add(System.currentTimeMillis() - base);
 
       base = System.currentTimeMillis();
-      Sort.insertionSort(arrRandom);
+      Sort.bubbleSort(arrRandom);
       timeRandom.add(System.currentTimeMillis() - base);
+
+      // long base = System.currentTimeMillis();
+      // Sort.bubbleSort(arrOrdered, 0, 10000 - 1);
+      // timeOrdered.add(System.currentTimeMillis() - base);
+
+      // base = System.currentTimeMillis();
+      // Sort.bubbleSort(arrReversed, 0, 10000 - 1);
+      // timeReversed.add(System.currentTimeMillis() - base);
+
+      // base = System.currentTimeMillis();
+      // Sort.bubbleSort(arrMid, 0, 10000 - 1);
+      // timeMid.add(System.currentTimeMillis() - base);
+
+      // base = System.currentTimeMillis();
+      // Sort.bubbleSort(arrRandom, 0, 10000 - 1);
+      // timeRandom.add(System.currentTimeMillis() - base);
 
       total.add(timeOrdered.get(i) + timeReversed.get(i) + timeMid.get(i) + timeRandom.get(i));
     }
