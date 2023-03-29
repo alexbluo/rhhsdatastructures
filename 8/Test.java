@@ -33,37 +33,42 @@ public class Test {
         arrRandom[j] = randomInt;
       }
 
-      long base = System.currentTimeMillis();
-      Sort.bubbleSort(arrOrdered);
-      timeOrdered.add(System.currentTimeMillis() - base);
-
-      base = System.currentTimeMillis();
-      Sort.bubbleSort(arrReversed);
-      timeReversed.add(System.currentTimeMillis() - base);
-
-      base = System.currentTimeMillis();
-      Sort.bubbleSort(arrMid);
-      timeMid.add(System.currentTimeMillis() - base);
-
-      base = System.currentTimeMillis();
-      Sort.bubbleSort(arrRandom);
-      timeRandom.add(System.currentTimeMillis() - base);
-
       // long base = System.currentTimeMillis();
-      // Sort.bubbleSort(arrOrdered, 0, 10000 - 1);
+      // Sort.quickSort(arrOrdered);
       // timeOrdered.add(System.currentTimeMillis() - base);
 
       // base = System.currentTimeMillis();
-      // Sort.bubbleSort(arrReversed, 0, 10000 - 1);
+      // Sort.quickSort(arrReversed);
       // timeReversed.add(System.currentTimeMillis() - base);
 
       // base = System.currentTimeMillis();
-      // Sort.bubbleSort(arrMid, 0, 10000 - 1);
+      // Sort.quickSort(arrMid);
       // timeMid.add(System.currentTimeMillis() - base);
 
       // base = System.currentTimeMillis();
-      // Sort.bubbleSort(arrRandom, 0, 10000 - 1);
+      // Sort.quickSort(arrRandom);
       // timeRandom.add(System.currentTimeMillis() - base);
+
+      long base = System.currentTimeMillis();
+      Sort.quickSort(arrOrdered, 0, 10000 - 1);
+      timeOrdered.add(System.currentTimeMillis() - base);
+
+      System.out.println(isSorted(arrOrdered));
+
+      base = System.currentTimeMillis();
+      Sort.quickSort(arrReversed, 0, 10000 - 1);
+      timeReversed.add(System.currentTimeMillis() - base);
+      System.out.println(isSorted(arrReversed));
+
+      base = System.currentTimeMillis();
+      Sort.quickSort(arrMid, 0, 10000 - 1);
+      timeMid.add(System.currentTimeMillis() - base);
+      System.out.println(isSorted(arrMid));
+
+      base = System.currentTimeMillis();
+      Sort.quickSort(arrRandom, 0, 10000 - 1);
+      timeRandom.add(System.currentTimeMillis() - base);
+      System.out.println(isSorted(arrRandom));
 
       total.add(timeOrdered.get(i) + timeReversed.get(i) + timeMid.get(i) + timeRandom.get(i));
     }
@@ -82,5 +87,15 @@ public class Test {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  private static boolean isSorted(int[] arr) {
+    for (int i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        return false;
+      }
+    }
+
+    return true;
   }
 }

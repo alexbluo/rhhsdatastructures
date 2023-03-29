@@ -16,14 +16,10 @@ public class Sort {
     for (int i = 0; i < arr.length - 1; i++) {
       for (int j = i + 1; j < arr.length; j++) {
         if (arr[i] > arr[j]) {
-          int temp = arr[j];
-          arr[j] = arr[i];
-          arr[i] = temp;
+          swap(arr, i, j);
         }
       }
     }
-
-    print(arr);
   }
 
   public static void selectionSort(int[] arr) {
@@ -91,8 +87,34 @@ public class Sort {
     }
   }
 
-  public static void quickSort(int[] arr) {
+  public static void quickSort(int[] arr, int l, int r) {
+    if (l < r) {
+      int i = partition(arr, l, r);
 
+      quickSort(arr, l, i - 1);
+      quickSort(arr, i + 1, r);
+    }
+  }
+
+  private static int partition(int arr[], int l, int r) {
+    int cur = l - 1;
+
+    for (int i = l; i < r; i++) {
+      if (arr[i] < arr[r]) {
+        cur++;
+        swap(arr, cur, i);
+      }
+    }
+
+    swap(arr, cur + 1, r);
+
+    return cur + 1;
+  }
+
+  private static void swap(int[] arr, int i, int j) {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
   }
 
   public static void heapSort(int[] arr) {
@@ -103,6 +125,7 @@ public class Sort {
     for (Integer i : arr) {
       System.out.print(i + ", ");
     }
-      System.out.println("");
+    System.out.println("");
   }
+
 }
