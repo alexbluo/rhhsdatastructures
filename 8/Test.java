@@ -33,41 +33,41 @@ public class Test {
         arrRandom[j] = randomInt;
       }
 
+      long base = System.currentTimeMillis();
+      Sort.heapSort(arrOrdered);
+      timeOrdered.add(System.currentTimeMillis() - base);
+
+      base = System.currentTimeMillis();
+      Sort.heapSort(arrReversed);
+      timeReversed.add(System.currentTimeMillis() - base);
+
+      base = System.currentTimeMillis();
+      Sort.heapSort(arrMid);
+      timeMid.add(System.currentTimeMillis() - base);
+
+      base = System.currentTimeMillis();
+      Sort.heapSort(arrRandom);
+      timeRandom.add(System.currentTimeMillis() - base);
+
       // long base = System.currentTimeMillis();
-      // Sort.quickSort(arrOrdered);
+      // Sort.heapSort(arrOrdered, 0, 10000 - 1);
       // timeOrdered.add(System.currentTimeMillis() - base);
 
       // base = System.currentTimeMillis();
-      // Sort.quickSort(arrReversed);
+      // Sort.heapSort(arrReversed, 0, 10000 - 1);
       // timeReversed.add(System.currentTimeMillis() - base);
 
       // base = System.currentTimeMillis();
-      // Sort.quickSort(arrMid);
+      // Sort.heapSort(arrMid, 0, 10000 - 1);
       // timeMid.add(System.currentTimeMillis() - base);
 
       // base = System.currentTimeMillis();
-      // Sort.quickSort(arrRandom);
+      // Sort.heapSort(arrRandom, 0, 10000 - 1);
       // timeRandom.add(System.currentTimeMillis() - base);
 
-      long base = System.currentTimeMillis();
-      Sort.quickSort(arrOrdered, 0, 10000 - 1);
-      timeOrdered.add(System.currentTimeMillis() - base);
-
       System.out.println(isSorted(arrOrdered));
-
-      base = System.currentTimeMillis();
-      Sort.quickSort(arrReversed, 0, 10000 - 1);
-      timeReversed.add(System.currentTimeMillis() - base);
       System.out.println(isSorted(arrReversed));
-
-      base = System.currentTimeMillis();
-      Sort.quickSort(arrMid, 0, 10000 - 1);
-      timeMid.add(System.currentTimeMillis() - base);
       System.out.println(isSorted(arrMid));
-
-      base = System.currentTimeMillis();
-      Sort.quickSort(arrRandom, 0, 10000 - 1);
-      timeRandom.add(System.currentTimeMillis() - base);
       System.out.println(isSorted(arrRandom));
 
       total.add(timeOrdered.get(i) + timeReversed.get(i) + timeMid.get(i) + timeRandom.get(i));
